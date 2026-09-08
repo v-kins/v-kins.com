@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{- $notes := where .Site.RegularPages "Section" "notes" -}}
+<section class="intro">
+  <p class="lede">{{ .Site.Params.description }}</p>
+</section>
+{{ with $notes }}
+<ul class="notes">
+  {{ range .ByDate.Reverse }}{{ partial "note-item.html" . }}{{ end }}
+</ul>
+{{ else }}
+<p class="empty">Nothing published yet. The vault is filling; the first notes land here once they clear.</p>
+{{ end }}
+{{ end }}

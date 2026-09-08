@@ -1,0 +1,42 @@
+baseURL = "https://v-kins.com/"
+locale = "en-AU"
+title = "V-Kins"
+enableRobotsTXT = true
+enableGitInfo = false
+capitalizeListTitles = false
+
+[params]
+  tagline = "Notes from the field"
+  author = "Timothy Watkins"
+  description = "Field notes by Timothy Watkins: patterns from ERP work, leading teams, customers, telemetry and working with AI."
+  story = "Four flags, five kin, one crew."
+
+[taxonomies]
+  tag = "tags"
+
+[permalinks]
+  [permalinks.page]
+    notes = "/notes/:slug/"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML", "RSS"]
+
+[services]
+  [services.rss]
+    limit = 50
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+  [markup.highlight]
+    noClasses = false
+    style = "github"
+
+[minify]
+  disableXML = true
+
+[frontmatter]
+  date = ["date", "publishDate", "lastmod"]

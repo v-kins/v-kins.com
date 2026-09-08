@@ -1,0 +1,9 @@
+{{ define "main" }}
+<section class="intro">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+</section>
+<ul class="notes">
+  {{ range .Pages.ByDate.Reverse }}{{ partial "note-item.html" . }}{{ end }}
+</ul>
+{{ end }}

@@ -1,0 +1,16 @@
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="brand" href="{{ "/" | relURL }}" aria-label="V-Kins home">
+      {{ partial "mark.html" . }}
+      <span class="brand-text">
+        <span class="wordmark">V<span class="hy">-</span>Kins</span>
+        <span class="tagline">{{ .Site.Params.tagline }}</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="{{ "/" | relURL }}"{{ if or .IsHome (eq .Section "notes") }} class="on" aria-current="page"{{ end }}>Notes</a>
+      <a href="{{ "/about/" | relURL }}"{{ if eq .RelPermalink "/about/" }} class="on" aria-current="page"{{ end }}>About</a>
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+    </nav>
+  </div>
+</header>

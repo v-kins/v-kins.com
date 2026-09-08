@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="article">
+  <header class="article-head">
+    {{ if eq .Section "notes" }}
+    <p class="meta">
+      <span class="pill pill-{{ .Type }}">{{ .Type | humanize }}</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+    </p>
+    {{ end }}
+    <h1>{{ .Title }}</h1>
+  </header>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+  {{ if eq .Section "notes" }}
+  <footer class="article-foot">
+    {{ with .GetTerms "tags" }}
+    <p class="tags">{{ range . }}<a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</p>
+    {{ end }}
+    <p class="byline">{{ .Site.Params.author }}</p>
+  </footer>
+  {{ end }}
+</article>
+{{ end }}
