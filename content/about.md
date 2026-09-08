@@ -5,9 +5,11 @@ build:
   list: never
 ---
 
-V-Kins is field notes by Timothy Watkins. Short observations from ERP implementations, leading product and engineering teams, listening to customers, reading telemetry, and lately working alongside AI. Each note is one thing noticed, the context it was noticed in, and what I would do differently.
+V-Kins is not a blog. It is a collection of observations gathered while building products, leading teams, raising a family, and trying to make sense of technology. The goal is not to teach. The goal is to share what I have noticed.
 
-It is a personal research database that happens to be published. Notes are captured privately first, and only the ones that pass one rule ever appear here: **patterns yes; people and deals never.** No identifiable customers, colleagues or company internals. If a note names a vendor's product, it is because the pattern needs it, not to praise or complain.
+Each note is one thing noticed, the context it was noticed in, and what I would do differently. They come from ERP implementations, leading product and engineering teams, listening to customers, reading telemetry, and lately working alongside AI.
+
+It is a personal research database that happens to be published. Notes are captured privately first, and only the ones that pass one rule ever appear here: **patterns yes; people, customers, deals and confidential conversations never.** No identifiable colleagues or company internals. If a note names a vendor's product, it is because the pattern needs it, not to praise or complain. The [Now page](/now/) says what is currently capturing attention.
 
 ## The name
 

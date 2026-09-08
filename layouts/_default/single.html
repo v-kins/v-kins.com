@@ -8,6 +8,7 @@
     </p>
     {{ end }}
     <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="standfirst">{{ . }}</p>{{ end }}
   </header>
   <div class="prose">
     {{ .Content }}

@@ -77,6 +77,9 @@ a:hover { color: var(--ink); }
 .empty { color: var(--muted); font-style: italic; }
 .notes { list-style: none; margin: 0; padding: 0; }
 .note { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.note-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.note-summary { margin: 0; font-size: 15px; color: var(--muted); font-style: italic; }
+.standfirst { font-size: 20px; font-style: italic; color: var(--tagline); margin: 12px 0 0; max-width: 60ch; }
 .note-title { font-weight: 600; font-size: 19px; color: var(--ink); text-decoration: none; }
 .note-title:hover { text-decoration: underline; }
 .note-date { font-family: var(--sans); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
