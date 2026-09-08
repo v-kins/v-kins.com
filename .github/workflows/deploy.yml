@@ -1,0 +1,77 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: Check notes pass the gate
+        run: python3 scripts/check_notes.py
+
+      - name: Check for en and em dashes
+        run: python3 scripts/check_dashes.py content layouts assets README.md CONTRIBUTING.md
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_PARAMS_BUILD: ${{ github.run_number }}.${{ github.sha }}
+        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    name: deploy production
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Verify deployment
+        # Follows the redirect to the custom domain. Marked non-fatal until DNS for v-kins.com is live;
+        # remove continue-on-error after that so a bad deploy fails the run.
+        continue-on-error: true
+        run: |
+          url="${{ steps.deployment.outputs.page_url }}"
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -sL -o /tmp/index.html -w "%{http_code}" "$url")
+            if [ "$code" = "200" ] && grep -q 'name="build" content="${{ github.run_number }}\.' /tmp/index.html; then
+              echo "live: $url serves build ${{ github.run_number }}"; exit 0
+            fi
+            echo "attempt $i: HTTP $code, waiting"; sleep 20
+          done
+          echo "site did not serve build ${{ github.run_number }} at $url"; exit 1

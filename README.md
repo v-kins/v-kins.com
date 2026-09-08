@@ -7,11 +7,11 @@ Only notes that have passed the confidentiality gate in the private vault (`publ
 ## Publish a note
 
 1. In the vault, set the note to `publishable: cleared` and `status: draft`, reread it for a stranger reading cold.
-2. Copy the file into `content/notes/`. The vault front matter works as-is: `title`, `date`, `type`, `tags` are all Hugo reads. `status` and `publishable` are carried along and ignored.
-3. Commit and push. GitHub Actions builds and deploys in about a minute.
+2. From the vault, run `scripts/publish-note.ps1 observations/<file>.md`. It re-checks the gate, copies the file into `content/notes/` on a `note/<slug>` branch and opens a pull request here.
+3. CI validates the note, builds the site and checks links. Squash merge when green. `Deploy` puts it live and verifies the build number.
 4. Back in the vault, flip `status: published`.
 
-A copy, not a sync, on purpose.
+A copy, not a sync, on purpose. Branching, checks and the deploy flow are in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Run locally
 
