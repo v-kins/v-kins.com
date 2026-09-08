@@ -17,7 +17,9 @@ The public site for V-Kins, notes from the field by Timothy Watkins. Hugo, a han
 ## The gate (mandatory)
 
 - A note may only exist under `content/notes/` if its front matter says `publishable: cleared` and `status` is `draft` or `published`. `scripts/check_notes.py` enforces this in CI.
-- Patterns yes; people and deals never. No identifiable customers, colleagues or company internals. The denylist of internal names lives in the vault, not here, because this repo is public.
+- Patterns yes. People, customers, deals and confidential conversations never. No identifiable colleagues or company internals. The denylist of internal names lives in the vault, not here, because this repo is public.
+- The employer's name may appear on About and Now, the pages about the author. It may not appear in a note.
+- `content/now.md` is copied from the vault's `_now.md` through the same PR flow as a note.
 - Never edit a note only in this repo. Fix it in the vault and copy it again.
 
 ## Source control policy

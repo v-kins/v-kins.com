@@ -9,6 +9,7 @@
     </a>
     <nav class="nav" aria-label="Site">
       <a href="{{ "/" | relURL }}"{{ if or .IsHome (eq .Section "notes") }} class="on" aria-current="page"{{ end }}>Notes</a>
+      <a href="{{ "/now/" | relURL }}"{{ if eq .RelPermalink "/now/" }} class="on" aria-current="page"{{ end }}>Now</a>
       <a href="{{ "/about/" | relURL }}"{{ if eq .RelPermalink "/about/" }} class="on" aria-current="page"{{ end }}>About</a>
       <a href="{{ "/index.xml" | relURL }}">RSS</a>
     </nav>

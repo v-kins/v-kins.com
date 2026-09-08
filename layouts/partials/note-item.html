@@ -1,5 +1,8 @@
 <li class="note">
   <span class="pill pill-{{ .Type }}">{{ .Type | humanize }}</span>
-  <a class="note-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  <div class="note-main">
+    <a class="note-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ with .Params.summary }}<p class="note-summary">{{ . }}</p>{{ end }}
+  </div>
   <time class="note-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
 </li>
