@@ -1,13 +1,23 @@
 {{ define "main" }}
-{{- $notes := where .Site.RegularPages "Section" "notes" -}}
-<section class="intro">
-  <p class="lede">{{ .Site.Params.description }}</p>
+{{ if .Site.Params.family }}
+<section class="home-intro" aria-labelledby="home-title">
+  <div class="hero-mark">{{ partial "mark.html" . }}</div>
+  <h1 class="wordmark" id="home-title">V<span class="hy">-</span>Kins</h1>
+  <p class="home-tagline">{{ .Site.Params.tagline }}</p>
+  <p class="home-story">{{ .Site.Params.story }}</p>
+  <p class="home-description">A family, with a few things to share.</p>
 </section>
-{{ with $notes }}
+{{ else }}
+<section class="intro">
+  <h1>Field notes</h1>
+  <p class="lede">{{ .Site.Params.notesDescription }}</p>
+</section>
+{{ with where .Site.RegularPages "Section" "notes" }}
 <ul class="notes">
   {{ range .ByDate.Reverse }}{{ partial "note-item.html" . }}{{ end }}
 </ul>
 {{ else }}
-<p class="empty">Nothing published yet. The vault is filling; the first notes land here once they clear.</p>
+<p class="empty">No notes yet.</p>
+{{ end }}
 {{ end }}
 {{ end }}

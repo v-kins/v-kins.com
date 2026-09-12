@@ -34,13 +34,25 @@ jobs:
       - name: Check for en and em dashes
         run: python3 scripts/check_dashes.py .
 
-      - name: Build
-        run: hugo --gc --minify --printPathWarnings --baseURL "https://v-kins.com/"
+      - name: Build family site
+        run: hugo --gc --minify --cleanDestinationDir --printPathWarnings --baseURL "https://v-kins.com/"
+
+      - name: Build personal site (validation only)
+        run: hugo --config hugo.toml,hugo.tim.toml --gc --minify --cleanDestinationDir --printPathWarnings
+
+      - name: Check site and theme behaviour
+        run: node --test scripts/site.test.mjs
 
       - name: Check internal links
         uses: lycheeverse/lychee-action@v2
         with:
           args: --offline --root-dir ${{ github.workspace }}/public --no-progress "public/**/*.html"
+          fail: true
+
+      - name: Check personal site internal links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --root-dir ${{ github.workspace }}/public-tim --no-progress "public-tim/**/*.html"
           fail: true
 
   secrets:

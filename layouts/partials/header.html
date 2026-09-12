@@ -1,5 +1,6 @@
 <header class="masthead">
   <div class="wrap masthead-row">
+    {{ if not .Site.Params.family }}
     <a class="brand" href="{{ "/" | relURL }}" aria-label="V-Kins home">
       {{ partial "mark.html" . }}
       <span class="brand-text">
@@ -7,11 +8,24 @@
         <span class="tagline">{{ .Site.Params.tagline }}</span>
       </span>
     </a>
+    {{ end }}
+    <div class="theme-control" id="theme-control" hidden>
+      <label for="theme-select">Theme</label>
+      <select id="theme-select" name="theme">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="system" selected>System</option>
+      </select>
+    </div>
+  </div>
+  {{ if not .Site.Params.family }}
+  <div class="wrap nav-row">
     <nav class="nav" aria-label="Site">
-      <a href="{{ "/" | relURL }}"{{ if or .IsHome (eq .Section "notes") }} class="on" aria-current="page"{{ end }}>Notes</a>
+      <a href="{{ "/" | relURL }}"{{ if .IsHome }} class="on" aria-current="page"{{ end }}>Home</a>
+      <a href="{{ "/notes/" | relURL }}"{{ if eq .Section "notes" }} class="on" aria-current="{{ if .IsSection }}page{{ else }}location{{ end }}"{{ end }}>Notes</a>
       <a href="{{ "/now/" | relURL }}"{{ if eq .RelPermalink "/now/" }} class="on" aria-current="page"{{ end }}>Now</a>
       <a href="{{ "/about/" | relURL }}"{{ if eq .RelPermalink "/about/" }} class="on" aria-current="page"{{ end }}>About</a>
-      <a href="{{ "/index.xml" | relURL }}">RSS</a>
     </nav>
   </div>
+  {{ end }}
 </header>

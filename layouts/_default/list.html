@@ -1,9 +1,14 @@
 {{ define "main" }}
 <section class="intro">
   <h1>{{ .Title }}</h1>
+  {{ if eq .Section "notes" }}<p class="lede">{{ .Site.Params.notesDescription }}</p>{{ end }}
   {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 </section>
+{{ if .Pages }}
 <ul class="notes">
   {{ range .Pages.ByDate.Reverse }}{{ partial "note-item.html" . }}{{ end }}
 </ul>
+{{ else }}
+<p class="empty">No notes yet.</p>
+{{ end }}
 {{ end }}

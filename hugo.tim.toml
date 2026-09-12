@@ -1,0 +1,15 @@
+# Overlay on hugo.toml for the independently built personal site.
+baseURL = "https://tim.v-kins.com/"
+title = "Timothy Watkins | V-Kins"
+contentDir = "content"
+publishDir = "public-tim"
+staticDir = ["static", "static-tim"]
+disableKinds = []
+
+[params]
+  family = false
+  tagline = "Notes from the field"
+  description = "Field notes by Timothy Watkins, published under V-Kins."
+
+[outputs]
+  home = ["HTML", "RSS"]
