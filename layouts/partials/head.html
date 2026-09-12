@@ -4,12 +4,17 @@
 {{- if not .IsHome }}{{ $title = printf "%s | %s" .Title .Site.Title }}{{ end -}}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary | plainify | truncate 160 }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}{{ end }}">
-<meta name="author" content="{{ .Site.Params.author }}">
+{{ if not .Site.Params.family }}<meta name="author" content="{{ .Site.Params.author }}">{{ end }}
 {{ with .Site.Params.build }}<meta name="build" content="{{ . }}">{{ end }}
 <meta name="color-scheme" content="light dark">
+{{/* Keep the canonical root blocks intact: the theme controller reads both palettes. */}}
+<style id="brand-tokens">{{ (resources.Get "css/brand-tokens.css").Content | safeCSS }}</style>
+{{ with resources.Get "js/theme.js" | minify | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "index.xml" | absURL }}">
+{{ if not .Site.Params.family }}<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "index.xml" | absURL }}">{{ end }}
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">

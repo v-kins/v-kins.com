@@ -1,11 +1,11 @@
 ---
 title: "About"
-description: "What V-Kins is, who writes it, and the one rule every note has to pass."
+description: "Field notes by Timothy Watkins, published under V-Kins, and the rule every note has to pass."
 build:
   list: never
 ---
 
-V-Kins is not a blog. It is a collection of observations gathered while building products, leading teams, raising a family, and trying to make sense of technology. The goal is not to teach. The goal is to share what I have noticed.
+These are field notes by Timothy Watkins, published under V-Kins. They are observations gathered while building products, leading teams, and trying to make sense of technology. The goal is not to teach. The goal is to share what I have noticed.
 
 Each note is one thing noticed, the context it was noticed in, and what I would do differently. They come from ERP implementations, leading product and engineering teams, listening to customers, reading telemetry, and lately working alongside AI.
 
@@ -13,7 +13,7 @@ It is a personal research database that happens to be published. Notes are captu
 
 ## The name
 
-Five kin, the Watkins name shortened to its last syllable, and a V that is also the Roman numeral for five: two parents, three kids. The family is Danish, Swedish, Welsh and Australian, and the mark carries all four. The red stroke in the middle is the join between the V and the K, where two families met. The chevron beside it is the Elder Futhark rune for K.
+V-Kins is the family, not the field notes. Four flags, five kin, one crew. The mark carries the story; these notes carry the author's observations.
 
 ## How to read it
 

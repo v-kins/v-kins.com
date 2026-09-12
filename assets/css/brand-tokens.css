@@ -1,0 +1,86 @@
+/* V-Kins design tokens.
+   Source of truth: brand/guidelines/colour.md and brand/guidelines/typography.md
+   Do not hand-edit colour values here without updating those documents. */
+
+:root {
+  /* Surfaces */
+  --vk-paper: #FFFFFF;
+  --vk-tint: #EEF2F9;
+
+  /* Text */
+  --vk-ink: #14264F;
+  --vk-text: #1E2B47;
+  --vk-muted: #5D6A85;
+  --vk-tagline: #3A4A6B;
+  --vk-line: #D8DEEA;
+
+  /* Flag colours. Each belongs to two of the four nations. */
+  --vk-blue: #234A96;   /* Field blue.   Sweden, Australia */
+  --vk-red: #C8102E;    /* Join red.     Denmark, Wales    */
+  --vk-green: #00843D;  /* Welsh green.  Wales, Australia  */
+  --vk-gold: #FECC02;   /* Swedish gold. Sweden, Australia */
+
+  /* Flag tints, for backgrounds only */
+  --vk-tint-blue: #E3EAF7;
+  --vk-tint-green: #DFF1E6;
+  --vk-tint-gold: #FFF3C4;
+
+  /* Mark gradients. Always vertical, light at the top. */
+  --vk-grad-blue-from: #3F72CC;
+  --vk-grad-blue-to: #1E3F86;
+  --vk-grad-red-from: #E0263F;
+  --vk-grad-red-to: #A80D24;
+
+  /* Type */
+  --vk-sans: Mulish, "Segoe UI", system-ui, -apple-system, sans-serif;
+  --vk-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --vk-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  /* Weights */
+  --vk-weight-display: 800;
+  --vk-weight-heading: 700;
+  --vk-weight-ui: 600;
+  --vk-weight-body: 400;
+
+  /* Spacing scale */
+  --vk-space-1: 4px;
+  --vk-space-2: 8px;
+  --vk-space-3: 12px;
+  --vk-space-4: 16px;
+  --vk-space-5: 24px;
+  --vk-space-6: 32px;
+  --vk-space-7: 48px;
+  --vk-space-8: 64px;
+
+  /* Radius */
+  --vk-radius-sm: 4px;
+  --vk-radius-md: 8px;
+  --vk-radius-lg: 10px;
+  --vk-radius-pill: 999px;
+
+  /* Measure */
+  --vk-measure-prose: 66ch;
+  --vk-measure-lede: 60ch;
+  --vk-width-page: 720px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vk-paper: #0C1220;
+    --vk-tint: #141C30;
+    --vk-ink: #E8EDF7;
+    --vk-text: #DDE4F1;
+    --vk-muted: #96A3BF;
+    --vk-tagline: #B8C4DE;
+    --vk-line: #293656;
+
+    --vk-blue: #7FA3E6;
+    --vk-red: #E8405A;
+    --vk-green: #3FB56E;
+    --vk-gold: #FFD84D;
+
+    --vk-tint-blue: #1E2C4E;
+    --vk-tint-green: #173A2A;
+    --vk-tint-gold: #3D3414;
+  }
+}

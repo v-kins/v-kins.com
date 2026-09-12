@@ -4,11 +4,15 @@ title = "V-Kins"
 enableRobotsTXT = true
 enableGitInfo = false
 capitalizeListTitles = false
+contentDir = "content-family"
+disableKinds = ["taxonomy", "term", "RSS"]
 
 [params]
-  tagline = "Notes from the field"
+  family = true
+  tagline = "Always one"
   author = "Timothy Watkins"
-  description = "Field notes by Timothy Watkins: patterns from ERP work, leading teams, customers, telemetry and working with AI."
+  description = "V-Kins. Always one. Four flags, five kin, one crew."
+  notesDescription = "Patterns from ERP work, leading teams, customers, telemetry and working with AI."
   story = "Four flags, five kin, one crew."
 
 [taxonomies]
@@ -19,7 +23,7 @@ capitalizeListTitles = false
     notes = "/notes/:slug/"
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML", "RSS"]
 

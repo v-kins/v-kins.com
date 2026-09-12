@@ -3,11 +3,13 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body>
+<body{{ if .Site.Params.family }} class="family"{{ end }}>
+  <a class="skip-link" href="#main">Skip to content</a>
   {{ partial "header.html" . }}
-  <main class="wrap">
+  <main class="wrap" id="main" tabindex="-1">
+    {{ if and (not .Site.Params.family) (ne .Kind "404") }}<p class="notes-byline">Notes from the field, by {{ .Site.Params.author }}.</p>{{ end }}
     {{ block "main" . }}{{ end }}
   </main>
-  {{ partial "footer.html" . }}
+  {{ if not .Site.Params.family }}{{ partial "footer.html" . }}{{ end }}
 </body>
 </html>
