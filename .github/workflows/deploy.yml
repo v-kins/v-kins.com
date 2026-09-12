@@ -59,7 +59,7 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - name: Verify deployment
         # Follows the redirect to the custom domain. Marked non-fatal until DNS for v-kins.com is live;
